@@ -1,0 +1,125 @@
+About blubber
+=============
+blubber is a simple arcade game in which you control a blub, that needs
+to blubber all the smaller blubs, in other to grow big enough to blubber
+the rest of the blubs.
+
+This is the client component of the blubber game. The server source code
+is available at: <https://github.com/plaimi/blubber-server>.
+
+The client is designed to be modular, so that you can play blubber using
+any client, on any server.
+
+
+Dependencies
+============
+The blubber server
+base             >=4.7  && <4.8
+bytestring       >=0.10 && <0.11
+cereal           >=0.4  && <0.5
+containers       >=0.5  && <0.6
+gloss            >=1.9  && <2.0
+network          >=2.6  && <2.7
+unix             >=2.7  && <2.8
+
+
+The game is built using GHC.
+
+Cabal is optional, but it makes building and installing a lot easier.
+
+
+Installing/setting up
+=====================
+
+NOTE: This repository is for developers. If you are a regular user, you
+should refer to <https://secure.plaimi.net/games/blubber.html>.
+
+Users should look for the game in their system's package manager. The
+game may be installed with cabal though.
+
+$ cabal install blubber-server
+
+Build instructions for developers
+---------------------------------
+# Optionally set up a sandboxed environment (recommended):
+$ cabal sandbox init
+
+# Install the dependencies:
+$ cabal install --only-dependencies
+
+# Build the game (puts a binary in ./dist/build/blubber-server/):
+$ cabal build
+
+# Make the documentation (puts html in ./dist/doc/htm/):
+$ cabal haddock --executables --hyperlink-source
+
+# Run the game:
+$ cabal run
+
+To install the game (not necessary usually) use:
+$ cabal install
+
+This will add the binary "blubber" to your cabal binaries (or to the
+sandbox).
+
+
+Running
+=======
+To run the game, use the executable (assumed to be in $PATH).
+$ blubber-server [IP] [PORT] [NAME]
+
+Where IP and PORT is the IP and port number of the server you want to
+play on, and NAME your preferred screen name. Nice GUI to come...
+
+
+Controls
+========
+
+Hit space to enter the game. Hit 'c' to get a link of the source code
+(printed to STDIN). The blub follows your mouse around the screen. Hit
+esc to exit.
+
+
+Low hanging fruit
+=================
+
+List of easy-to-fix things (easiest/quickest first):
+  -Rearrange TLDs to make things more readable and nice.
+  -Improve TDL documentation.
+  -Handle window resizing properly wrt scaling.
+  -Clean up drawing code to not duplicate things.
+  -Translate the names of the blubs so that they are centred.
+  -Set up optparse-applicative, and do argument parsing properly.
+  -Do something more sensical with the source code returned from the
+  server upon request.
+  -Draw something that makes it obvious that the player is actually
+  moving around. A black unchanging background is not very good at this.
+  -Do some window management.
+  -Implement a rudimentary menu system.
+  -Implement a lobby system for connecting to servers.
+
+
+Licensing and Legalese
+=======================
+blubber is free software: you can redistribute it and/or modify
+it under the terms of the GNU General Public License as published by
+the Free Software Foundation, either version 3 of the License, or
+(at your option) any later version.
+
+blubber is distributed in the hope that it will be useful,
+but WITHOUT ANY WARRANTY; without even the implied warranty of
+MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
+GNU General Public License for more details.
+
+You should have received a copy of the GNU General Public License
+along with blubber.  If not, see <http://www.gnu.org/licenses/>.
+
+
+Contributing To the Project
+===========================
+
+There is a mailing list: <https://secure.plaimi.net/mailing.php>. On
+there you can discuss the game, suggest features, report bugs, get help
+(both as a user and as a developer), and so on.
+
+If you want to contribute code, send a patch to the mailing list.

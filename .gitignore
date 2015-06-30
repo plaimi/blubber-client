@@ -1,0 +1,8 @@
+/.cabal-sandbox/
+/cabal.sandbox.config
+/dist/
+*.patch
+*.eml
+.*.swp
+*~
+*.tar.gz
